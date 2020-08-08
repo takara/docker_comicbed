@@ -16,6 +16,10 @@ RUN apt-get -y update
 RUN apt-get -y install net-tools git make apache2 sqlite3
 RUN apt-get -y install vim curl chkconfig gcc libpcre3-dev unzip locales
 RUN apt-get -y install mysql-server php php-pear php-mysql php-curl php-mbstring php-zip php-gd php-sqlite3
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash 
+RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get install -y yarn
 ENV DEBIAN_FRONTEND dialog
 
 # tty停止
